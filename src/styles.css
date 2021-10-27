@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+Paleta de Colores
+color: #1B262C
+color: #0c2e3f
+color: #1a5a87
+color: #c86529
+color: #cbb245
+color: #dfdf99
+*/
+
+body{
+    margin: 0;
+}
+.header{
+    padding: 5px;
+    background-color: #1B262C;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vistas{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
