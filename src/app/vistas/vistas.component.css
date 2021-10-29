@@ -5,14 +5,18 @@
 
 }
 
-#lista.elemento{
+#lista:hover, #tabla:hover{
+    background-color: orangered;
+}
+
+#lista{
     width: 100%;
     height: 100%;
     background-color: #c86529;
     border-right: 0.5px solid #dfdf99;
 }
 
-#tabla.elemento{
+#tabla{
     width: 100%;
     height: 100%;
     background-color: #c86529;
