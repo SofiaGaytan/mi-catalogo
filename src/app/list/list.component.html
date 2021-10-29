@@ -1,0 +1,28 @@
+<div class="list">
+    <div class="auto" *ngFor="let auto of autos">
+        <img id="ver" src="/assets/imagenes/icono_ver.png" alt="Imagen no disponible" (click)='onSelect(content,auto)'>
+        {{auto.descripcion}}
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado.descripcion}}</h4>
+        <button type="button" id='modalClose' class="close" aria-label="Close" (click)="modal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <dl>
+              <dt>Marca:</dt>
+              <dd>{{autoSeleccionado.marca}}</dd>
+              <dt>Submarca:</dt>
+              <dd>{{autoSeleccionado.submarca}}</dd> 
+              <dt>Modelo:</dt>
+              <dd>{{autoSeleccionado.modelo}}</dd>
+              <dt>Fecha de Registro:</dt>
+              <dd>{{autoSeleccionado.fecha_registro}}</dd>
+          </dl>
+      </div>
+</ng-template>
+
