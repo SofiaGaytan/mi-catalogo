@@ -14,4 +14,16 @@ export class AutosService {
     return this.http.get<any>(this.url);
   }
 
+  updateAuto(auto:Automovil):Observable<any>{
+    return this.http.put<any>(`${this.url}/${auto._id}`,auto);
+  }
+
+  addAuto(auto:Automovil):Observable<any>{
+    return this.http.post<any>(this.url,auto);
+  }
+
+  deleteAuto(auto:Automovil):Observable<any>{
+    return this.http.delete<any>(`${this.url}/${auto._id}`);
+  }
+
 }

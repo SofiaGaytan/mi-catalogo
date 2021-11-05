@@ -9,6 +9,9 @@ import { VistasComponent } from './vistas/vistas.component';
 import { ListComponent } from './list/list.component';
 import { TableComponent } from './table/table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ModalAddUpdateComponent } from './modals/modal-add-update/modal-add-update.component';
+import { FormsModule } from '@angular/forms';
+import { ModalConfirmActionComponent } from './modals/modal-confirm-action/modal-confirm-action.component';
 
 
 @NgModule({
@@ -18,15 +21,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     VistasComponent,
     ListComponent,
     TableComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ModalAddUpdateComponent,
+    ModalConfirmActionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalAddUpdateComponent]
 })
 export class AppModule { }

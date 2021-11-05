@@ -1,0 +1,40 @@
+<div class="modal-add-update">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{accion}}</h4>
+        <button type="button" id='modalClose' class="close" aria-label="Close" (click)="activeModal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #formAutos="ngForm">
+            <div class="form-group">
+                <label for="marca">ID</label>
+                <input type="text" class="form-control" id="ID" placeholder="ID"
+                    [(ngModel)]="auto._id" name="_id" [readonly]="lectura">
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca"
+                    [(ngModel)]="auto.marca" name="marca">
+            </div>
+            <div class="form-group">
+                <label for="submarca">Submarca</label>
+                <input type="text" class="form-control" id="submarca" placeholder="Agrega la submarca"
+                [(ngModel)]="auto.submarca" name="submarca">
+            </div>
+            <div class="form-group">
+                <label for="modelos">Modelos</label>
+                <input type="text" disabled class="form-control" id="modelos" placeholder="Agrega el modelo"
+                [(ngModel)]="auto.modelos" name="modelos">
+            </div>
+            <div class="form-group">
+                <label for="marca">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" placeholder="Agrega la descripción"
+                [(ngModel)]="auto.descripcion" name="descripcion">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-dark" (click)="activeModal.close(auto)">Guardar</button>
+    </div>
+</div>
