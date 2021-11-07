@@ -21,6 +21,8 @@ export class TableComponent implements OnInit {
 
   displayProgressBar:boolean = true;
 
+  searchText:string = "";
+
   constructor(private autosService: AutosService, private modalService:NgbModal) { }
 
   ngOnInit(): void {

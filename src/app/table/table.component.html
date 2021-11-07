@@ -8,6 +8,17 @@
         </button>
     </div>
 
+    <div id="filter">
+        <label class="sr-only" for="busqueda">Filtro</label>
+        <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-search"></i></div>
+            </div>
+            <input type="text" class="form-control" id="busqueda" placeholder="Buscar..."
+            [(ngModel)]="searchText" autocomplete="off">
+        </div>
+    </div>
+
     <table class="autos table table-hover">
         <thead class="thead-autos">
             <tr>
@@ -22,11 +33,11 @@
         </thead>
         <tbody>
             <tr *ngIf="displayProgressBar">
-            <th colspan="7">
-                <ngb-progressbar type="warning" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar>
-            </th>
-        </tr>
-            <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : page * pageSize">
+                <th colspan="7">
+                    <ngb-progressbar type="warning" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar>
+                </th>
+            </tr>
+            <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : page * pageSize | filter:searchText">
                 <td>{{ auto._id }}</td>
                 <td>{{ auto.marca | uppercase }}</td>
                 <td>{{ auto.submarca | uppercase }}</td>
