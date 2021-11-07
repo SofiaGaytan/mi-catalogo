@@ -37,6 +37,15 @@ body{
     margin-top: 20px;
 }
 
+.log{
+    background-color: black;
+    margin: 40px;
+    padding: 10px;
+    color: white;
+    font-family: 'Consolas',monospace;
+    overflow: scroll;
+}
+
 .page-not-found{
     text-align: center;
     margin: 50px auto;
