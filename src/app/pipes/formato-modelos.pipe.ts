@@ -10,7 +10,7 @@ export class FormatoModelosPipe implements PipeTransform {
     if(modelos.length==1){
       return modelos;
     }
-    return ` De ${modelos[0]} hasta ${modelos[1]}`
+    return ` De ${modelos[0]} hasta ${modelos[modelos.length - 1]}`
   }
 
 }

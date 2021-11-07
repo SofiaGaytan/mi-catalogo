@@ -16,8 +16,8 @@ export class TableComponent implements OnInit {
   autos: Automovil[] = [];
   default: Automovil = {_id:0, marca:"",submarca:"",modelos:[],descripcion:""}
   
-  page = 1;
-  pageSize=50;
+  page:number = 1;
+  pageSize:number = 50;
 
   displayProgressBar:boolean = true;
 
@@ -25,6 +25,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayProgressBar = true;
+    this.page = Number(sessionStorage.getItem('currentPage')?.toString())
     this.autosService.getAutos().subscribe((response) => {
       setTimeout(() =>{
         this.displayProgressBar = false;
@@ -40,7 +41,10 @@ export class TableComponent implements OnInit {
     modalRef.result.then(
       (auto)=>{
         console.log(auto)
-        this.autosService.addAuto(auto).subscribe((response)=>console.log(response));
+        this.autosService.addAuto(auto).subscribe((value)=>{
+          sessionStorage.setItem('currentPage',this.page.toString())
+          this.ngOnInit();
+        });
       },
       (reason)=>{
         console.log(reason)
@@ -55,7 +59,10 @@ export class TableComponent implements OnInit {
     modalRef.result.then(
       (auto)=>{
         console.log(auto)
-        this.autosService.updateAuto(auto).subscribe((response)=>console.log(response));
+        this.autosService.updateAuto(auto).subscribe((value)=>{
+          sessionStorage.setItem('currentPage',this.page.toString())
+          this.ngOnInit();
+        });
       },
       (reason)=>{
         console.log(reason)
@@ -70,7 +77,10 @@ export class TableComponent implements OnInit {
     modalRef.result.then(
       (auto)=>{
         console.log(auto)
-        this.autosService.deleteAuto(auto).subscribe((response)=>console.log(response));
+        this.autosService.deleteAuto(auto).subscribe((value)=>{
+          sessionStorage.setItem('currentPage',this.page.toString())
+          this.ngOnInit();
+        });
       },
       (reason)=>{
         console.log(reason)
