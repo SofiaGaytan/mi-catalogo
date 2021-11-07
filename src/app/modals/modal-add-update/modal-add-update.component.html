@@ -5,36 +5,60 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
-        <form #formAutos="ngForm">
+    <form #formAutos="ngForm" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+            <!-- ID
             <div class="form-group">
-                <label for="marca">ID</label>
-                <input type="text" class="form-control" id="ID" placeholder="ID"
-                    [(ngModel)]="auto._id" name="_id" [readonly]="lectura">
+                
+                <label for="_id">ID</label>
+                <input type="text" class="form-control" id="ID" placeholder="ID" [(ngModel)]="auto._id" name="_id"
+                    [readonly]="lectura">
             </div>
+            -->
             <div class="form-group">
                 <label for="marca">Marca</label>
-                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca"
-                    [(ngModel)]="auto.marca" name="marca">
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" required minlength="4"
+                    [(ngModel)]="auto.marca" name="marca" #marca="ngModel">
+            </div>
+            <div *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+                <div *ngIf="marca.errors?.required" class="alert alert-danger">La marca es requerida.</div>
+                <div *ngIf="marca.errors?.minlength" class="alert alert-danger">La marca debe de tener una longitud
+                    minima de 4 caracteres.</div>
             </div>
             <div class="form-group">
                 <label for="submarca">Submarca</label>
-                <input type="text" class="form-control" id="submarca" placeholder="Agrega la submarca"
-                [(ngModel)]="auto.submarca" name="submarca">
+                <input type="text" class="form-control" id="submarca" placeholder="Agrega la submarca" minlength="4"
+                    [(ngModel)]="auto.submarca" name="submarca" #submarca="ngModel" required>
+            </div>
+            <div *ngIf="submarca.invalid && (submarca.dirty || submarca.touched)">
+                <div *ngIf="submarca.errors?.required" class="alert alert-danger">La submarca es requerida.</div>
+                <div *ngIf="submarca.errors?.minlength" class="alert alert-danger">La submarca debe de tener una
+                    longitud minima de 4 caracteres.</div>
             </div>
             <div class="form-group">
                 <label for="modelos">Modelos</label>
-                <input type="text" disabled class="form-control" id="modelos" placeholder="Agrega el modelo"
-                [(ngModel)]="auto.modelos" name="modelos">
+                <div class="input-group">
+                    <span class="input-group-text">Año de Inicio:</span>
+                    <input type="number" class="form-control" id="inicio" placeholder=" Agrega..." [(ngModel)]="inicio"
+                        min="2000" [max]="fin" name="inicio" required>
+                </div>
+                <div class="input-group" style="margin-top: 10px;">
+                    <span class="input-group-text">Año de Fin:</span>
+                    <input type="Number" class="form-control" id="fin" placeholder="Agrega..." [(ngModel)]="fin"
+                        [min]="inicio" max="2020" name="fin" required>
+                </div>
             </div>
             <div class="form-group">
-                <label for="marca">Descripción</label>
+                <label for="descripcion">Descripción</label>
                 <input type="text" class="form-control" id="descripcion" placeholder="Agrega la descripción"
-                [(ngModel)]="auto.descripcion" name="descripcion">
+                    [(ngModel)]="auto.descripcion" name="descripcion" #descripcion="ngModel" required>
             </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-dark" (click)="activeModal.close(auto)">Guardar</button>
-    </div>
+            <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                <div *ngIf="descripcion.errors?.required" class="alert alert-danger">La descripción es requerida.</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-dark" [disabled]="!formAutos.form.valid">Guardar</button>
+        </div>
+    </form>
 </div>

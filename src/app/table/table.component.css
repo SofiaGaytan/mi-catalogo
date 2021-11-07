@@ -6,3 +6,16 @@
 .thead-autos{
     background-color: #dfdf99;
 }
+
+.add{
+    font-size: 18px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#add-btn:hover{
+    background-color: black;
+    border: black;
+}

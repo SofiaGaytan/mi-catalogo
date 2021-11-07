@@ -1,0 +1,17 @@
+.ng-valid[required]{
+    border-left: 5px solid green;
+    background-color: white;
+    color: black;
+}
+
+.ng-valid[required]:hover{
+    color: green;
+}
+
+.ng-invalid:not(form){
+    border-left: 5px solid red;
+}
+
+.ng-invalid:not(form):hover{
+    color: red;
+}
