@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AutosService } from '../autos.service';
 import { ModalAddUpdateComponent } from '../modals/modal-add-update/modal-add-update.component';
@@ -10,6 +10,7 @@ import { Automovil } from '../models';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
+
 export class TableComponent implements OnInit {
 
   autos: Automovil[] = [];

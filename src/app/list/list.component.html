@@ -10,7 +10,7 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado.descripcion}}</h4>
+        <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado.descripcion | uppercase}}</h4>
         <button type="button" id='modalClose' class="close" aria-label="Close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -18,11 +18,11 @@
     <div class="modal-body">
         <dl>
             <dt>Marca:</dt>
-            <dd>{{autoSeleccionado.marca}}</dd>
+            <dd>{{autoSeleccionado.marca | uppercase}}</dd>
             <dt>Submarca:</dt>
-            <dd>{{autoSeleccionado.submarca}}</dd>
+            <dd>{{autoSeleccionado.submarca | uppercase}}</dd>
             <dt>Modelos:</dt>
-            <dd>{{autoSeleccionado.modelos}}</dd>
+            <dd>{{autoSeleccionado.modelos | modelos}}</dd>
         </dl>
     </div>
 </ng-template>

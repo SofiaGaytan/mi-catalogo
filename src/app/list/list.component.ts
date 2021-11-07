@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { Automovil } from '../models';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AutosService } from '../autos.service';
@@ -8,7 +8,6 @@ import { AutosService } from '../autos.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-
 
 
 export class ListComponent implements OnInit {

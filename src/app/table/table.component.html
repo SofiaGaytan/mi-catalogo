@@ -21,10 +21,10 @@
         <tbody>
             <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : page * pageSize">
                 <td>{{ auto._id }}</td>
-                <td>{{ auto.marca }}</td>
-                <td>{{ auto.submarca }}</td>
-                <td>{{ auto.modelos }}</td>
-                <td>{{ auto.descripcion }}</td>
+                <td>{{ auto.marca | uppercase }}</td>
+                <td>{{ auto.submarca | uppercase }}</td>
+                <td>{{ auto.modelos | modelos }}</td>
+                <td>{{ auto.descripcion | uppercase}}</td>
                 <td><i class="fa fa-pencil" aria-hidden="true" (click)="openModalUpdate(auto)"></i></td>
                 <td><i class="fa fa-trash" aria-hidden="true" (click)="openModalDelete(auto)"></i></td>
             </tr>
