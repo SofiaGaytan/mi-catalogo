@@ -1,4 +1,7 @@
 <div class="list">
+    <p *ngIf="displayProgressBar" style="margin: 20px;">
+        <ngb-progressbar type="warning" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar>
+    </p>
     <div class="auto" *ngFor="let auto of autos | slice: (page-1) * pageSize : page * pageSize">
         <!--<img id="ver" src="/assets/imagenes/icono_ver.png" alt="Imagen no disponible" (click)='onSelect(content,auto)'>-->
         <i class="fa fa-eye" (click)='onSelect(content,auto)'></i>

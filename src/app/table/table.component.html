@@ -1,11 +1,13 @@
 <div class="tabla">
     <div class="add">
-    <p>¿Desea agregar un auto?</p>
-    <button type="button" id="add-btn" class="btn btn-secondary" style="margin: 20px 0px;" (click)="openModalAdd(default)">
-        Agregar
-        <i class="fa fa-plus"></i>
-    </button>
+        <p>¿Desea agregar un auto?</p>
+        <button type="button" id="add-btn" class="btn btn-secondary" style="margin: 20px 0px;"
+            (click)="openModalAdd(default)">
+            Agregar
+            <i class="fa fa-plus"></i>
+        </button>
     </div>
+
     <table class="autos table table-hover">
         <thead class="thead-autos">
             <tr>
@@ -14,11 +16,16 @@
                 <th scope="col">Submarca</th>
                 <th scope="col">Modelos</th>
                 <th scope="col">Descripción</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
             </tr>
         </thead>
         <tbody>
+            <tr *ngIf="displayProgressBar">
+            <th colspan="7">
+                <ngb-progressbar type="warning" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar>
+            </th>
+        </tr>
             <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : page * pageSize">
                 <td>{{ auto._id }}</td>
                 <td>{{ auto.marca | uppercase }}</td>
@@ -30,6 +37,6 @@
             </tr>
         </tbody>
     </table>
-    <ngb-pagination class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize" [collectionSize]="autos.length" [maxSize]="10" [rotate]="true"
-        [boundaryLinks]="true"></ngb-pagination>
+    <ngb-pagination class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize"
+        [collectionSize]="autos.length" [maxSize]="10" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
 </div>

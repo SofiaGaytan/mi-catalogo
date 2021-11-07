@@ -17,12 +17,18 @@ export class ListComponent implements OnInit {
 
   page = 1;
   pageSize=50;
+
+  displayProgressBar:boolean = true;
   
   constructor(private modalService:NgbModal, private autosService: AutosService) { }
 
   ngOnInit(): void {
+    this.displayProgressBar = true;
     this.autosService.getAutos().subscribe((response) => {
-      this.autos = response.data;
+      setTimeout(() =>{
+        this.displayProgressBar = false;
+        this.autos = response.data;
+      },1500)
     });
   }
 
